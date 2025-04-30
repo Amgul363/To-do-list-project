@@ -6,16 +6,29 @@ body {
 }
 
 header h1 {
-  text-align: center;
+  text-align: left;
   font-size: 2rem;
+  text-decoration: underline;
 }
 
 input, button {
   padding: 10px;
   margin: 10px;
+  border:solid;
   border-radius: 2px;
   font-size: 1rem;
+  border-color: rgba(115, 121, 36, 0.445);
+ 
 }
+
+input:hover{
+  border-color: #467c485d;
+}
+Input:active{
+  border-color: #043b0636;
+ 
+}
+
 
 button {
   background-color: #4CAF50;
@@ -26,7 +39,11 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #013004e7;
+} 
+button:active{
+  background-color: #677467;
+  color : black
 }
 
 ul {
@@ -46,4 +63,9 @@ li {
 li.completed {
   text-decoration: line-through;
   color: grey;
+}
+footer{
+  text-align: left;
+  font-size: 20px;
+  font-family: Arial;
 }
