@@ -7,14 +7,18 @@ function addTask(){
   const taskText =taskInput.value.trim();
     if (taskText !== ''){
       const li = document.createElement('li');
-      li.textContent = taskText
+
+      const span = document.createElement('span');
+      span.textContent = taskText;
+      li.appendChild(span);
+
 
 
       //mark task as completed 
     li.addEventListener('click',()=>{
       li.classList.toggle('completed');
     })
-      saveTaskToLocalStorage();
+     
 
 
       //add a time stamp
@@ -27,12 +31,12 @@ function addTask(){
     deleteButton.textContent = '❌'//delete button symbol
     deleteButton.addEventListener('click',()=>{
       li.remove();
-      localStorage.removeItem('tasks');
+      saveTaskToLocalStorage();
 
       //remove task when clicked
     });
 
-    saveTaskToLocalStorage();
+    
 
     //append/add delete button to the list item
 
@@ -44,6 +48,8 @@ function addTask(){
 
     //clear the input after adding task
     taskInput.value = '';
+
+    saveTaskToLocalStorage();
     }
 }
 addTaskButton.addEventListener('click', ()=>{

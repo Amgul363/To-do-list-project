@@ -3,8 +3,9 @@ function saveTaskToLocalStorage (){
   document.querySelectorAll('#task-list li').forEach((li)=>{
     tasks.push({
       text: li.querySelector('span').textContent.trim(),
-      completed: li.classList.contains('completed')
-    })
+      completed: li.classList.contains('completed'),
+      time: li.querySelector('small')?.textContent || ''
+    });
   })
 localStorage.setItem('tasks', JSON.stringify(tasks));
 
@@ -14,11 +15,16 @@ function loadTasksFromLocalStorage() {
   const storedTasks = JSON.parse(localStorage.getItem('tasks'));
   if (storedTasks) {
     storedTasks.forEach(task => {
+      
       const li = document.createElement('li');
 
       const span = document.createElement('span');
       span.textContent = task.text;
       li.appendChild(span);
+
+      const timeStamp = document.createElement('small');
+      timeStamp.textContent = task.time || '';
+      li.appendChild(timeStamp);
 
 
       if (task.completed) {
