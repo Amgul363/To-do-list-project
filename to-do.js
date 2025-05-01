@@ -15,8 +15,10 @@ function addTask(){
       li.classList.toggle('completed');
     })
       
-
-
+      //add a time stamp
+    const timeStamp =document.createElement('small');
+    timeStamp.textContent = `(added:${new Date().toLocaleTimeString()})`
+    li.appendChild(timeStamp)
 
   //creatint a delete button
     const deleteButton = document.createElement('button');
