@@ -17,7 +17,7 @@ function addTask(){
       
       //add a time stamp
     const timeStamp =document.createElement('small');
-    timeStamp.textContent = `(added:${new Date().toLocaleTimeString()})`
+    timeStamp.textContent = `(added: ${new Date().toLocaleTimeString()})`
     li.appendChild(timeStamp)
 
   //creatint a delete button
@@ -53,3 +53,13 @@ if (event.key==='Enter'){
   addTask();
 }
 });
+
+//Add a clear  all button
+const clearAllButton = document.createElement('button');
+clearAllButton.textContent = 'Clear All';
+clearAllButton.style.marginTop = '20px';
+clearAllButton.addEventListener('click',()=>{
+  taskList.innerHTML = '';
+});
+
+document.body.appendChild(clearAllButton)
