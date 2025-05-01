@@ -14,7 +14,9 @@ function addTask(){
     li.addEventListener('click',()=>{
       li.classList.toggle('completed');
     })
-      
+      saveTaskToLocalStorage();
+
+
       //add a time stamp
     const timeStamp =document.createElement('small');
     timeStamp.textContent = `(added: ${new Date().toLocaleTimeString()})`
@@ -25,8 +27,12 @@ function addTask(){
     deleteButton.textContent = '❌'//delete button symbol
     deleteButton.addEventListener('click',()=>{
       li.remove();
+      localStorage.removeItem('tasks');
+
       //remove task when clicked
     });
+
+    saveTaskToLocalStorage();
 
     //append/add delete button to the list item
 
@@ -62,4 +68,6 @@ clearAllButton.addEventListener('click',()=>{
   taskList.innerHTML = '';
 });
 
-document.body.appendChild(clearAllButton)
+document.body.appendChild(clearAllButton);
+
+loadTasksFromLocalStorage();
