@@ -8,7 +8,15 @@ function addTask(){
     if (taskText !== ''){
       const li = document.createElement('li');
       li.textContent = taskText
+
+
+      //mark task as completed 
+    li.addEventListener('click',()=>{
+      li.classList.toggle('completed');
+    })
       
+
+
 
   //creatint a delete button
     const deleteButton = document.createElement('button');

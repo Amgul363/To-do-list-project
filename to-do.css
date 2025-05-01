@@ -69,3 +69,8 @@ footer{
   font-size: 20px;
   font-family: Arial;
 }
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
