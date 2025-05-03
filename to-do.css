@@ -1,76 +1,64 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f4f4f9;
-}
 
-header h1 {
-  text-align: left;
-  font-size: 2rem;
-  text-decoration: underline;
-}
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #f4f4f4;
+    max-width: 600px;
+    margin: auto;
+  }
 
-input, button {
-  padding: 10px;
-  margin: 10px;
-  border:solid;
-  border-radius: 2px;
-  font-size: 1rem;
-  border-color: rgba(115, 121, 36, 0.445);
- 
-}
+  #task-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
 
-input:hover{
-  border-color: #467c485d;
-}
-Input:active{
-  border-color: #043b0636;
- 
-}
+  button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
 
+  button:hover {
+    background-color: #0056b3;
+  }
 
-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 2px;
-  cursor: pointer;
-}
+  #task-list {
+    list-style-type: none;
+    padding: 0;
+  }
 
-button:hover {
-  background-color: #013004e7;
-} 
-button:active{
-  background-color: #677467;
-  color : black
-}
+  #task-list li {
+    background: white;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
+  #task-list li.completed span {
+    text-decoration: line-through;
+    color: #888;
+  }
 
-li {
-  background-color: white;
-  margin: 5px;
-  padding: 10px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-}
+  #task-list li small {
+    font-size: 0.75rem;
+    color: #666;
+  }
 
-li.completed {
-  text-decoration: line-through;
-  color: grey;
-}
-footer{
-  text-align: left;
-  font-size: 20px;
-  font-family: Arial;
-}
-
-.completed {
-  text-decoration: line-through;
-  color: gray;
-}
+  #task-list li button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    color: red;
+    font-size: 1.2rem;
+  }
