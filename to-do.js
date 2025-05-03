@@ -23,7 +23,10 @@ function addTask(){
 
       //add a time stamp
     const timeStamp =document.createElement('small');
-    timeStamp.textContent = `(added: ${new Date().toLocaleTimeString()})`
+    const now = new Date();
+    const formattedTime = now.toLocaleTimeString();
+    const formattedDate = now.toLocaleDateString();
+    timeStamp.textContent = `Added: ${formattedTime} on ${formattedDate}`;
     li.appendChild(timeStamp)
 
   //creatint a delete button
