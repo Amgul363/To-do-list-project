@@ -73,9 +73,15 @@ if (event.key==='Enter'){
 const clearAllButton = document.createElement('button');
 clearAllButton.textContent = 'Clear All';
 clearAllButton.style.marginTop = '20px';
-clearAllButton.addEventListener('click',()=>{
-  taskList.innerHTML = '';
-});
+
+
+      clearAllButton.addEventListener('click',()=>{
+        const confirmClear = confirm('Are you sure you want to delete all tasks?');
+        if (confirmClear){
+      taskList.innerHTML = '';
+      localStorage.removeItem('tasks') 
+      //clears all stored tasks
+    }});
 
 document.body.appendChild(clearAllButton);
 
