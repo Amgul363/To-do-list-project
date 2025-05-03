@@ -8,11 +8,36 @@ function addTask(){
     if (taskText !== ''){
       const li = document.createElement('li');
 
+      //create a span to wrap the task text
       const span = document.createElement('span');
       span.textContent = taskText;
-      li.appendChild(span);
+      
+//add a dbclick edit functionality
+      span.addEventListener('dblclick',()=>{
+       const input = document.createElement('input')
+       input.type = 'text';
+       input.value =span.textContent;
+       input.style.marginRight = '10px'
 
 
+       li.replaceChild(input, span);
+       input.focus();
+
+
+        const saveEdit =()=>{
+          span.textContent = input.value.trim() || span.textContent;
+          li.replaceChild(span, input);
+          saveTaskToLocalStorage();
+        };
+
+        input.addEventListener('blur', saveEdit);
+        input.addEventListener('keydown', (event)=>{
+          if (event.key ==='Enter'){
+            saveEdit();
+          }
+        })
+      })
+      li.appendChild(span); // append the span containing task text
 
       //mark task as completed 
     li.addEventListener('click',()=>{
